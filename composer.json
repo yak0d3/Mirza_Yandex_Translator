@@ -1,0 +1,52 @@
+{
+    "name": "yak0d3/mirza_yandex_translator",
+    "description": "Mirza Translator For Laravel gives you the ability to easily translate and manipulate text using the Yandex.Translate API.",
+    "keywords": [
+        "laravel translator",
+        "laravel yandex translate",
+        "yandex translate",
+        "Laravel translation package",
+        "yandex translate",
+        "yandex translate api"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yak0d3",
+            "email": "contact.raedyak@gmail.com"
+        }
+    ],
+    "require": {},
+	"autoload": {
+		"psr-4": {
+            "yak0d3\\mirza_yandex_translator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "yak0d3\\mirza_yandex_translator\\Tests\\": "tests/"
+        }
+	},	
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "yak0d3\\mirza_yandex_translator\\MirzaServiceProvider"
+            ],
+            "aliases": {
+                "Mirza": "yak0d3\\mirza_yandex_translator\\MirzaFacade"
+            },
+	    "branch-alias": {
+               "dev-master": "1.0.0-dev"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

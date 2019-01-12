@@ -2,8 +2,8 @@
 
 namespace yak0d3\mirza_yandex_translator;
 
-use Illuminate\Support\ServiceProvider;
 use Blade;
+use Illuminate\Support\ServiceProvider;
 
 class MirzaServiceProvider extends ServiceProvider
 {
@@ -14,22 +14,21 @@ class MirzaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->publishes([
-			__DIR__.'/../config/mirza.php' => config_path('mirza.php'),
+            __DIR__.'/../config/mirza.php' => config_path('mirza.php'),
         ]);
-        Blade::directive('translate', function ($expression){
+        Blade::directive('translate', function ($expression) {
             $expression = explode(',', $expression);
             $text = $expression[0];
             $lang = $expression[1];
 
             return "<?php echo Mirza::translate($text, $lang); ?>";
         });
-        Blade::directive('langselect', function (){
-            return "<?php echo Mirza::languages_select(); ?>";
+        Blade::directive('langselect', function () {
+            return '<?php echo Mirza::languages_select(); ?>';
         });
-        Blade::directive('yandex_rights',function($expression){
-            $expression = explode(',',$expression);
+        Blade::directive('yandex_rights', function ($expression) {
+            $expression = explode(',', $expression);
             $color = $expression[0];
             $fontsize = $expression[1];
 
@@ -48,15 +47,15 @@ class MirzaServiceProvider extends ServiceProvider
             __DIR__.'/../config/mirza.php', 'mirza'
         );
 
-        \App::singleton('MirzaClient',function(){
+        \App::singleton('MirzaClient', function () {
             return new MirzaClient(config('mirza.secret'));
         });
-        \App::bind('Mirza',function(){
+        \App::bind('Mirza', function () {
             $client = resolve('MirzaClient');
+
             return new Mirza($client);
         });
 
-        \App::alias('Mirza','yak0d3\Mirza_Yandex_Translator\MirzaFacade');
-
+        \App::alias('Mirza', 'yak0d3\Mirza_Yandex_Translator\MirzaFacade');
     }
 }

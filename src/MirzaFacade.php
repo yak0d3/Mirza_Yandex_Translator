@@ -6,5 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 class MirzaFacade extends Facade
 {
-    protected static function getFacadeAccessor() { return 'Mirza'; }
+    protected static function getFacadeAccessor()
+    {
+        return 'Mirza';
+    }
 }

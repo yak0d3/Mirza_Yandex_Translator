@@ -4,11 +4,12 @@
 ![Mirza Yandex Translator Logo](https://i.imgur.com/DlgRhkN.png)
 
 <p align="center">
-	<a href="https://travis-ci.org/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/travis/yak0d3/Mirza_Yandex_Translator.svg" alt="build"></a>
-	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/librariesio/github/yak0d3/Mirza_Yandex_Translator.svg" alt="Dependencies"></a>
-	<a href="https://scrutinizer-ci.com/g/yak0d3/Mirza_Yandex_Translator/"><img src="https://img.shields.io/scrutinizer/g/yak0d3/Mirza_Yandex_Translator.svg" alt="Code Quality"></a>
-	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator/releases"><img src="https://img.shields.io/github/release/yak0d3/Mirza_Yandex_Translator.svg"></a>
-	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator/blob/master/LICENSE"><img src="https://poser.pugx.org/yak0d3/mirza_yandex_translator/license"></a>
+	<a href="https://travis-ci.org/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/travis/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="build"></a>
+		<a href="https://github.styleci.io/repos/161622259"><img src="https://github.styleci.io/repos/161622259/shield"></a>
+	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/librariesio/github/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="Dependencies"></a>
+	<a href="https://scrutinizer-ci.com/g/yak0d3/Mirza_Yandex_Translator/"><img src="https://img.shields.io/scrutinizer/g/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="Code Quality"></a>
+	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator/releases"><img src="https://img.shields.io/github/release/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square"></a>
+	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator/blob/master/LICENSE"><img src="https://poser.pugx.org/yak0d3/mirza_yandex_translator/license?format=flat-square"></a>
 
 </p>
 

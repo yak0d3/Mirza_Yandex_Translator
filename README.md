@@ -4,7 +4,7 @@
 ![Mirza Yandex Translator Logo](https://i.imgur.com/DlgRhkN.png)
 
 <p align="center">
-	<a href="https://travis-ci.org/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/travis/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="build"></a>
+	<a href="https://travis-ci.org/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/travis/yak0d3/Mirza_Yandex_Translator/master.svg?style=flat-square" alt="build"></a>
 		<a href="https://github.styleci.io/repos/161622259"><img src="https://github.styleci.io/repos/161622259/shield"></a>
 	<a href="https://github.com/yak0d3/Mirza_Yandex_Translator"><img src="https://img.shields.io/librariesio/github/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="Dependencies"></a>
 	<a href="https://scrutinizer-ci.com/g/yak0d3/Mirza_Yandex_Translator/"><img src="https://img.shields.io/scrutinizer/g/yak0d3/Mirza_Yandex_Translator.svg?style=flat-square" alt="Code Quality"></a>

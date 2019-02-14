@@ -1,32 +1,18 @@
 <?php
-/**
- * Mirza Yandex Translator For Laravel
- * Mirza makes it easy to translate and manipulate text using the Yandex.Translate API.
- *
- * @version 1.0.0
- *
- * @author yak0d3 <contact.raedyak@gmail.com>
- * @license MIT
- *
- * @link https://github.com/yak0d3/Mirza_Yandex_Translator
- *
- * @copyright 2018 Yak0d3
- */
 
-namespace yak0d3\mirza_yandex_translator;
+namespace yak0d3\Mirza;
 
 use Exception;
 
 class MirzaClient
 {
     /**
-     * Yandex Translation API Key Variable
-     * Publish the configuration using `php artisan vendor:publish`,
-     * then set the YANDEX_KEY environment variable (inside of the .env file) to your own Yandex.Translate API Key.
+     * Yandex.Translate API Key
      *
      * @var string
      */
     private $key;
+
     /**
      * The list of supported languages variable.
      *
@@ -34,9 +20,14 @@ class MirzaClient
      */
     public $supportedLanguages;
 
-    public function __construct($key)
+    /**
+     * Create a new MirzaClient instance
+     *
+     * @param string $key
+     */
+    public function __construct(string $key)
     {
-        $this->isValidKey($key);
+        $this->validateApiKey($key);
         $this->key = $key;
         $this->supportedLanguages = $this->getLanguages(true);
     }
@@ -46,11 +37,11 @@ class MirzaClient
      *
      * @param string $key
      *
-     * @throws Exception if the key is invalid
+     * @throws Exception
      *
      * @return boolean
      */
-    private function isValidKey($key)
+    private function validateApiKey(string $key)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://translate.yandex.net/api/v1.5/tr.json/detect');
@@ -86,6 +77,8 @@ class MirzaClient
         if (!$goodKey) {
             throw new \Exception($errorMsg);
         }
+
+        return true;
     }
 
     /**
@@ -93,13 +86,13 @@ class MirzaClient
      *
      * @param string $text
      * @param string $lang
-     * @param string $format [plain|html]
+     * @param string $format
      *
-     * @throws Exception if the string could not be translated
+     * @throws Exception
      *
      * @return string
      */
-    public function translate($text, $lang, $format = 'plain')
+    public function translate(string $text, string $lang, string $format = 'plain')
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://translate.yandex.net/api/v1.5/tr.json/translate');
@@ -122,17 +115,17 @@ class MirzaClient
      *
      * @param string $text
      *
-     * @throws Exception if it couldn't detect the language
+     * @throws Exception
      *
      * @return string
      */
-    public function detectLanguage($text)
+    public function detectLanguage(string $text)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://translate.yandex.net/api/v1.5/tr.json/detect');
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 'text='.urlencode($text).'&key='.$this->key);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'text=' . urlencode($text) . '&key=' . $this->key);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $response = json_decode(curl_exec($ch));
@@ -147,15 +140,16 @@ class MirzaClient
 
     /**
      * Returns the list of supported languages
-     * If `$codes` is set to true, only language code will be returned.
+     * If `$codes` is set to true, only the
+     * language code will be returned.
      *
      * @param bool $codes
      *
-     * @throws Exception if an unknown error occures while trying to fetch the list of supported languages
+     * @throws Exception
      *
      * @return string
      */
-    public function getLanguages($codes = false)
+    public function getLanguages(bool $codes = false)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs');
@@ -166,6 +160,7 @@ class MirzaClient
 
         $response = json_decode(curl_exec($ch));
         curl_close($ch);
+
         if (array_key_exists('langs', $response)) {
             return $codes ? array_keys(json_decode(json_encode($response->langs), true)) : $response->langs;
         } else {

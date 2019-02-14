@@ -1,6 +1,6 @@
 <?php
 
-namespace yak0d3\mirza_yandex_translator;
+namespace yak0d3\Mirza;
 
 use Illuminate\Support\Facades\Facade;
 

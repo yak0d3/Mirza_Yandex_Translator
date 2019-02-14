@@ -1,6 +1,6 @@
 <?php
 
-namespace yak0d3\mirza_yandex_translator;
+namespace yak0d3\Mirza;
 
 use Blade;
 use Illuminate\Support\ServiceProvider;
@@ -56,6 +56,6 @@ class MirzaServiceProvider extends ServiceProvider
             return new Mirza($client);
         });
 
-        \App::alias('Mirza', 'yak0d3\Mirza_Yandex_Translator\MirzaFacade');
+        \App::alias('Mirza', MirzaFacade::class);
     }
 }

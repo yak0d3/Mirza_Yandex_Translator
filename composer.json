@@ -1,46 +1,49 @@
 {
-    "name": "yak0d3/mirza_yandex_translator",
+    "name": "yak0d3/mirza",
     "description": "Mirza Translator For Laravel gives you the ability to easily translate and manipulate text using the Yandex.Translate API.",
     "keywords": [
         "laravel translator",
         "laravel yandex translate",
         "yandex translate",
         "Laravel translation package",
-        "yandex translate",
         "yandex translate api"
     ],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "yak0d3",
+            "name": "Raed Yak",
             "email": "contact.raedyak@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.0",
+        "laravel/framework": "^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.0",
+        "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+    },
 	"autoload": {
 		"psr-4": {
-            "yak0d3\\mirza_yandex_translator\\": "src/"
+            "yak0d3\\Mirza\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "yak0d3\\mirza_yandex_translator\\Tests\\": "tests/"
+            "yak0d3\\Mirza\\Tests\\": "tests/"
         }
-	},	
-    "require-dev": {
-        "phpunit/phpunit": "^7.5"
-    },
+	},
     "extra": {
         "laravel": {
             "providers": [
-                "yak0d3\\mirza_yandex_translator\\MirzaServiceProvider"
+                "yak0d3\\Mirza\\MirzaServiceProvider"
             ],
             "aliases": {
-                "Mirza": "yak0d3\\mirza_yandex_translator\\MirzaFacade"
+                "Mirza": "yak0d3\\Mirza\\MirzaFacade"
             },
 	    "branch-alias": {
-               "dev-master": "1.0.0-dev"
+               "dev-master": "1.0.x-dev"
             }
         }
     },

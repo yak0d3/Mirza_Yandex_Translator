@@ -1,16 +1,16 @@
 <?php
 
-namespace yak0d3\mirza_yandex_translator\Tests;
+namespace yak0d3\Mirza\Tests;
 
 use Exception;
 use PHPUnit\Framework\TestCase as TestCase;
-use yak0d3\mirza_yandex_translator\Mirza as Mirza;
-use yak0d3\mirza_yandex_translator\MirzaClient as MirzaClient;
+use yak0d3\Mirza\Mirza as Mirza;
+use yak0d3\Mirza\MirzaClient as MirzaClient;
 
 class MirzaTest extends TestCase
 {
-    private $mirzaClient;
-    private $mirza;
+    protected $mirzaClient;
+    protected $mirza;
 
     public function setUp()
     {
@@ -165,16 +165,7 @@ class MirzaTest extends TestCase
                             'de',
                             'es',
                         ]);
-        /* $this->mirzaClient->expects($this->once())
-                          ->method('detectLanguage')
-                          ->willReturn('en'); */
-        /*  $this->mirzaClient->expects($this->exactly(3))
-                            ->method('translate')
-                            ->will($this->onConsecutiveCalls(
-                                'Salut',
-                                'Hi',
-                                'Hola'
-                            )); */
+
         $response = json_decode($this->mirza->translateToAll('Hello'), true);
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('originalText', $response);

@@ -1,22 +1,9 @@
 <?php
-/**
- * Mirza Yandex Translator For Laravel
- * Mirza makes it easy to translate and manipulate text using the Yandex.Translate API.
- *
- * @version 1.0.0
- *
- * @author yak0d3 <contact.raedyak@gmail.com>
- * @license MIT
- *
- * @link https://github.com/yak0d3/Mirza_Yandex_Translator
- *
- * @copyright 2018 Yak0d3
- */
 
-namespace yak0d3\mirza_yandex_translator;
+namespace yak0d3\Mirza;
 
 use Exception;
-use yak0d3\mirza_yandex_translator\MirzaClient as MirzaClient;
+use yak0d3\Mirza\MirzaClient as MirzaClient;
 
 class Mirza
 {
@@ -25,7 +12,7 @@ class Mirza
      *
      * @var MirzaClient
      */
-    private $client;
+    protected $client;
 
     /**
      * Construct.
@@ -53,8 +40,10 @@ class Mirza
     /**
      * Translates an array of text to the given language
      * The array can be associative or sequential
-     * If the array is associative, an array with the same index names will be returned in a json encoded string
-     * If the $assoc param is set to `true` and the given array is sequential an exception will be thrown.
+     *  If the array is associative, an array with the same
+     * index names will be returned in a json encoded string.
+     *  If the $assoc param is set to `true` and the given array
+     * is sequential an exception will be thrown.
      *
      * @param array  $textArray
      * @param string $lang
@@ -244,7 +233,7 @@ class Mirza
      *
      * @return boolean
      */
-    private function isSupportedLang(string $lang)
+    public function isSupportedLang(string $lang)
     {
         if (!in_array($lang, json_decode(json_encode($this->client->supportedLanguages), true))) {
             return false;
